@@ -1,7 +1,7 @@
 "use strict";
 
 
-angular.module("TravelThing").controller("BookCtrl", function($scope, travelFactory){
+angular.module("TravelApp").controller("BookCtrl", function($scope, travelFactory){
   console.log('testersertertsertets');
   $scope.tester = "tstererrr";
 

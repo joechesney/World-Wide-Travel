@@ -2,7 +2,7 @@
 // const angular = require("angular"); 
 // const ngRoute = require("angular-route");
 
-const travelApp = angular.module("TravelThing", ["ngRoute"]);
+const travelApp = angular.module("TravelApp", ["ngRoute"]);
 
 
 travelApp.config( ($routeProvider)=>{

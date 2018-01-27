@@ -1,42 +1,46 @@
-module.exports = function(grunt){
+module.exports = function(grunt) {
   grunt.initConfig({
-    jshint: {
-      files: ['app/**/*.js'],
+    "angular-builder": {
       options: {
-        predef: ['document', 'console', 'alert', '$', 'angular'],
+        mainModule: "TravelApp",
+        externalModules: ["ngRoute"]
+      },
+      app: {
+        src: "./app/**/*.js",
+        dest: "./dist/project.js"
+      }
+    },
+    jshint: {
+      options: {
+        predef: ["document", "console", "firebase"],
         esnext: true,
         globalstrict: true,
-        globals: {},
-        browserify: true
-      }
+        globals: { angular: true }
+      },
+      files: ["./app/**/*.js"]
     },
     sass: {
       dist: {
         files: {
-          'css/main.css': 'sass/style.scss'
+          "./css/main.css": "./sass/main.scss"
         }
       }
     },
     watch: {
       javascripts: {
-        files: ['app/**/*.js'],
-        tasks: ['jshint', 'browserify']
+        files: ["./app/**/*.js"],
+        tasks: ["jshint", "angular-builder"]
       },
       sass: {
-        files: ['sass/**/*.scss'],
-        tasks: ['sass']
-      },
-      hbs: {
-        files: ['templates/**/*.hbs']
-      }
-    },
-    browserify: {
-      'dist/bundle.js': ['app/app.js'],
-      options: {
-        transform: ['hbsfy'],
+        files: ["./sass/**/*.scss"],
+        tasks: ["sass"]
       }
     }
   });
-  require('matchdep').filter('grunt-*').forEach(grunt.loadNpmTasks);
-  grunt.registerTask("default", ['jshint', 'sass', 'browserify', 'watch']);
-}
+
+  require("matchdep")
+    .filterDev("grunt-*")
+    .forEach(grunt.loadNpmTasks);
+
+  grunt.registerTask("default", ["jshint", "sass", "angular-builder", "watch"]);
+};
