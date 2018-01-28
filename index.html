@@ -9,17 +9,22 @@
 <body ng-app="TravelApp">
   HELLO
   <div >
-    
+    <nav ng-controller="AuthCtrl">
+      <button ng-click="logoutUser()">Logout</button>
+    </nav>
     <div ng-view>
       <!-- {{guidesList}} -->
     </div>
 
   </div>
   <!-- <script src="dist/bundle.js"></script> -->
+  <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
   <script src="node_modules/angular/angular.min.js"></script>
   <script src="node_modules/angular-route/angular-route.min.js"></script>
-  <script src="dist/project.js"></script>
-  <!-- <script src="app/app.js"></script> -->
+  <!-- <script src="dist/project.js"></script> -->
+  
+  <script src="app/app.js"></script>
+  <script src='app/AppConstants.js'></script>
   <script src='app/factories/travel.factory.js'></script>
   <script src='app/factories/AuthFactory.js'></script>
   <script src="app/controllers/bookCtrl.js"></script>

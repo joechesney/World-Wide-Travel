@@ -1,5 +1,7 @@
 "use strict";
 
+// const FIREBASE_CONFIG = require("../AppConstants");
+
 angular.module("TravelApp")
 .factory("AuthFactory", function($q, $http, $rootScope, FIREBASE_CONFIG) {
   let currentUserData = null;
